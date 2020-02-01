@@ -12,8 +12,8 @@
 	TypeScript 2.6
 	RxJS 5.5
 	
-![Login](screenshots/login.png "Login")
-![Temps](screenshots/temps.png "Temps")
+![Login](screenshots/login.PNG "Login")
+![Temps](screenshots/temps.PNG "Temps")
 	
 ## Installation
 ### Requirements
