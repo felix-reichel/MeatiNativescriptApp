@@ -1,0 +1,48 @@
+<StackLayout>
+	<app-meati-actionbar [title]="'Einstellungen'"></app-meati-actionbar>
+	<GridLayout rows="*,60">
+		<ScrollView orientation="vertical" class="meati-helper-padding20 meati-screen iphoneX-side">
+			<StackLayout orientation="vertical">
+				<StackLayout orientation="horizontal" class="meati-imageLabel seperator-top-50" width="90%" (tap)="redirectProfile()">
+					<Image class="image-small" src="~/images/apple.jpg"></Image>
+					<Label text="Profil" verticalAlignment="center"></Label>
+				</StackLayout>
+				<StackLayout orientation="horizontal" class="meati-imageLabel seperator-top-50" width="90%">
+					<Image class="image-small" src="~/images/pie-chart.png"></Image>
+					<Label text="Statistiken" verticalAlignment="center"></Label>
+				</StackLayout>
+				<StackLayout class="seperator-top-50">
+					<GridLayout columns="*, 60" class="meati-toggleLabel">
+						<Label col="0" verticalAlignment="center" text="Benachrichtigungen empfangen"></Label>
+						<Switch class="switch" col="1" checked="{{ currentUserSettings.sendNotifications }}" (checkedChange)="onChecked1($event)"></Switch>
+					</GridLayout>
+					<GridLayout columns="*, 60" class="meati-toggleLabel">
+						<Label col="0" verticalAlignment="center" text="automatisch mit bekannten Geräten verbinden"></Label>
+						<Switch class="switch" col="1" checked="{{ currentUserSettings.autoConnectWithKnownDevices }}" (checkedChange)="onChecked2($event)"></Switch>
+					</GridLayout>
+					<GridLayout columns="*, 60" class="meati-toggleLabel">
+						<Label col="0" verticalAlignment="center" text="Alarm auf Gerät"></Label>
+						<Switch class="switch" col="1" checked="{{ currentUserSettings.alarmOnHardware }}" (checkedChange)="onChecked3($event)"></Switch>
+					</GridLayout>
+					<GridLayout columns="*, 150" class="meati-toggleLabel2">
+						<Label col="0" verticalAlignment="center" text="Temperatureinheit"></Label>
+						<ListPicker col="1" [items]="temperatureUnits" selectedIndex="getSelectedIndex()" (selectedIndexChange)="selectedIndexChanged($event)" class="p-15"></ListPicker>
+				
+					</GridLayout>
+				</StackLayout>
+				<StackLayout class="seperator-top-100">
+					<GridLayout columns="*, 60" class="meati-toggleLabel">
+						<Label col="0" verticalAlignment="center" text="Passwort ändern"></Label>
+					</GridLayout>
+					<GridLayout class="meati-toggleLabel">
+						<Label (tap)="this.logOff()" col="0" verticalAlignment="center" text="Ausloggen"></Label>
+					</GridLayout>
+				</StackLayout>
+				<Label class="seperator-top-50" fontSize="30" text="(c) Project Meati 2018" textWrap="true" color="#202126" horizontalAlignment="center"></Label>
+				<Label text="{N} Authors: Markus Premstaller, Felix Reichel" textWrap="true" color="#202126" textAlign="center" horizontalAlignment="center"></Label>
+				<Label class="seperator-bottom-50" text="Higher Technical College Leonding, Austria" textWrap="true" color="#202126" textAlign="center" horizontalAlignment="center"></Label>
+			</StackLayout>
+		</ScrollView>
+		<app-meati-navbar></app-meati-navbar>
+	</GridLayout>
+</StackLayout>

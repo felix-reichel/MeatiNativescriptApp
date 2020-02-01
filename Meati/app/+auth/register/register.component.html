@@ -1,0 +1,85 @@
+<StackLayout>
+    <WrapLayout orientation="horizontal" class="meati-screen">
+      <ScrollView width="100%" height="100%" orientation="vertical" class="meati-helper-padding20 meati-register" width="100%">
+          <GridLayout rows="*, 6*, *" width="90%" height="90%" verticalAlignment="center" horizontalAlignment="center">
+            <Label row="0" class="meati-default-label" text="<< Login" (tap)="redirectToLogin()"></Label>
+
+            <!-- nativescript-ui approach -->
+            <RadDataForm row="1" id="myDataForm" (loaded)="onLoaded()" tkExampleTitle tkToggleNavButton [source]="_user" [commitMode]="_commitMode" backgroundColor="rgba(255,255,255,1)" 
+                         (propertyCommitted)="onPropertyCommitted()" (propertyValidate)="onPropertyValidate($event)" (propertyValidated)="onPropertyValidated($event)">
+              <TKEntityProperty tkDataFormProperty name="username" displayName="Benutzername*" index="0">
+                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Benutzername darf nicht leer sein."></TKNonEmptyValidator>
+                    <TKMaximumLengthValidator tkEntityPropertyValidators errorMessage="Benutzername darf nicht länger als 30 Zeichen sein." length="30"></TKMaximumLengthValidator>
+                    <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Benutzer muss mindestens 4 Zeichen lang sein." length="4"></TKMinimumLengthValidator>
+              </TKEntityProperty>
+
+              <TKPropertyGroup tkDataFormGroups collapsible="false" name="Bitte Formular ausfüllen:" hidden="false" separatorColor="#fb6149">
+                <TKEntityProperty tkPropertyGroupProperties tkDataFormProperty name="username" displayName="Benutzername *" index="0">
+                  <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelHidden="false" fillColor="transparent" labelTextSize="16" labelTextColor="#000000"></TKPropertyEditorStyle>
+                  </TKPropertyEditor>
+                  <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Benutzername darf nicht leer sein."></TKNonEmptyValidator>
+                  <TKMaximumLengthValidator tkEntityPropertyValidators errorMessage="Benutzername darf nicht länger als 30 Zeichen sein." length="30"></TKMaximumLengthValidator>
+                  <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Benutzer muss mindestens 4 Zeichen lang sein." length="4"></TKMinimumLengthValidator>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkPropertyGroupProperties tkDataFormProperty name="password" displayName="Passwort *" index="1" secure="true">
+                  <TKPropertyEditor tkEntityPropertyEditor type="Password">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelHidden="false" fillColor="transparent" labelTextSize="16" labelTextColor="#000000"></TKPropertyEditorStyle>
+                  </TKPropertyEditor>
+                  <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Passwort darf nicht leer sein."></TKNonEmptyValidator>
+                  <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Passwort muss mindestens 6 Zeichen lang sein." length="6"></TKMinimumLengthValidator>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkPropertyGroupProperties tkDataFormProperty name="password2" displayName="Passwort wiederholen *" index="2" secure="true">
+                  <TKPropertyEditor tkEntityPropertyEditor type="Password">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelHidden="false" labelTextSize="16" labelTextColor="#000000"></TKPropertyEditorStyle>
+                  </TKPropertyEditor>
+                  <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Passwort darf nicht leer sein."></TKNonEmptyValidator>
+                  <TKMinimumLengthValidator tkEntityPropertyValidators errorMessage="Passwort muss mindestens 6 Zeichen lang sein." length="6"></TKMinimumLengthValidator>
+                </TKEntityProperty>
+
+                <TKEntityProperty tkPropertyGroupProperties tkDataFormProperty name="email" displayName="E-Mail *" index="3">
+                  <TKPropertyEditor tkEntityPropertyEditor type="Email">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelHidden="false" labelTextSize="16" labelTextColor="#000000"></TKPropertyEditorStyle>
+                  </TKPropertyEditor>
+                  <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="E-Mail darf nicht leer sein."></TKNonEmptyValidator>
+                  <TKEmailValidator tkEntityPropertyValidators errorMessage="E-Mail nicht korrekt."></TKEmailValidator>
+                </TKEntityProperty>
+
+                <GridLayout columns="*, *">
+                  <TKEntityProperty col="0" tkPropertyGroupProperties tkDataFormProperty name="firstname" displayName="Vorname *" index="4">
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                      <TKPropertyEditorStyle tkPropertyEditorStyle labelHidden="false" labelTextSize="16" labelTextColor="#000000"></TKPropertyEditorStyle>
+                    </TKPropertyEditor>
+                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Vorname darf nicht leer sein."></TKNonEmptyValidator>
+                  </TKEntityProperty>
+
+                  <TKEntityProperty col="1" tkPropertyGroupProperties tkDataFormProperty name="lastname" displayName="Nachname *" index="5">
+                    <TKPropertyEditor tkEntityPropertyEditor type="Text">
+                      <TKPropertyEditorStyle tkPropertyEditorStyle labelHidden="false" labelTextSize="16" labelTextColor="#000000"></TKPropertyEditorStyle>
+                    </TKPropertyEditor>
+                    <TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Nachname darf nicht leer sein."></TKNonEmptyValidator>
+                  </TKEntityProperty>
+                </GridLayout>
+
+                <TKEntityProperty tkPropertyGroupProperties tkDataFormProperty name="dateOfBirth" displayName="Geburtsdatum *" index="6">
+                  <TKPropertyEditor tkEntityPropertyEditor type="DatePicker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelHidden="false" labelTextSize="16" labelTextColor="#000000"></TKPropertyEditorStyle>
+                  </TKPropertyEditor>
+                  <!--<TKNonEmptyValidator tkEntityPropertyValidators errorMessage="Geburtsdatum darf nicht leer sein."></TKNonEmptyValidator>-->
+                </TKEntityProperty>
+
+                <TKEntityProperty tkPropertyGroupProperties tkDataFormProperty name="gender" displayName="Geschlecht *" index="7" [valuesProvider]="this._genderProvider">
+                  <TKPropertyEditor tkEntityPropertyEditor type="Picker">
+                    <TKPropertyEditorStyle tkPropertyEditorStyle labelHidden="false" labelTextSize="16" labelTextColor="#000000"></TKPropertyEditorStyle>
+                  </TKPropertyEditor>
+                </TKEntityProperty>
+              </TKPropertyGroup>
+            </RadDataForm>
+
+            <Button row="2" col="1" class="meati-alternative-btn1" (tap)="handleRegister()" text="Registrieren"></Button>
+          </GridLayout>
+      </ScrollView>
+    </WrapLayout>
+</StackLayout>

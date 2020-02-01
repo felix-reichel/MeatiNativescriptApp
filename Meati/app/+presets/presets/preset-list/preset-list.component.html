@@ -1,0 +1,37 @@
+<StackLayout>
+	<app-meati-actionbar [title]="'Presets'"></app-meati-actionbar>
+	<GridLayout rows="*,60">
+		<WrapLayout orientation="horizontal" class="meati-screen">
+			<StackLayout>
+				<Label horizontalAlignment="center" text="Kategorie" class="meati-default-label seperator-top-50 seperator-bottom-50"></Label>
+        		<Image class="preset_image" src="res://{{categoryName}}_preset" stretch="aspectFit" width="30%"></Image>
+				<Label horizontalAlignment="center" text="{{categoryName}}" class="meati-default-label4 seperator-top-20"></Label>   
+					<RadListView #listview [items]="availablePresets"
+						class="meati-listview1"
+						height="100%" 
+						width="100%" 
+						selectionBehavior="None" 
+						(itemSwipeProgressStarted)="onSwipeCellStarted($event)"
+						(itemTap)="onItemTap($event)"
+						swipeActions="true">
+					<ng-template tkListItemTemplate let-item="item" class="presetList">
+						<GridLayout columns="80,*,80" width="100%" class="presetList padding-top-50 padding-bottom-50 meati-sperator-lvc meati-helper-padding20">
+							<StackLayout orientation="vertical" col="0" horizontalAlignment="right" textAlignment="right">
+								<Label text="Zeit:" textAlignment="right"></Label>
+								<Label text="{{ item.grillTime }}" textAlignment="right"></Label>
+							</StackLayout>
+							<Label textWrap="true" textAlignment="center" text="{{ item.presetName }}" class="meati-default-label" col="1"></Label>
+							<Image id="settingsIcon" class="margin-50" src="~/images/edit_icon.png" col="2"></Image>
+						</GridLayout>
+					</ng-template>
+					<GridLayout *tkListItemSwipeTemplate columns="*, auto" class="listItemSwipeGridLayout">
+						<StackLayout class="deleteViewStackLayout" col="2" (tap)="onDelete()">
+							<Label text="DELETE" verticalAlignment="center" horizontalAlignment="center"></Label>
+						</StackLayout>
+					</GridLayout>
+				</RadListView> 
+			</StackLayout>
+		</WrapLayout>
+		<app-meati-navbar></app-meati-navbar>
+	</GridLayout>
+</StackLayout>

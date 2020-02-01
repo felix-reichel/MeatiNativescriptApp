@@ -1,0 +1,54 @@
+<GridLayout>
+  <GridLayout #background 
+    class="meati-login"
+    scaleX="1.4"
+    scaleY="1.4" 
+    (loaded)="startBackgroundAnimation(background)">
+  </GridLayout>
+
+  <StackLayout>
+    <!--<app-meati-actionbar [title]="'Login'"></app-meati-actionbar>-->
+    <!--<GridLayout rows="*,60">-->
+      <WrapLayout orientation="horizontal">
+        <GridLayout rows="*,*,*,*,*" class="meati-helper-padding20" >
+          <StackLayout row="0" verticalAlignment="center">
+            <Label text="Meati" class="meati-label-h1-v2" ></Label>
+            <Label text="v0.0.3 beta" class="meati-default-label4" horizontalAlignment="center"></Label>
+          </StackLayout>
+
+          <StackLayout row="2" [formGroup]="form">
+            <TextField 
+              formControlName="username" 
+              hint="Benutzername" 
+              class="meati-default-label3 meati-tf"
+              autocorrect="false"
+              autocapitalizationType="none">
+            </TextField>
+            <TextField 
+              formControlName="password"
+              hint="Passwort" 
+              class="meati-default-label3 meati-tf" 
+              autocorrect="false"
+              secure="true"></TextField>
+          </StackLayout>
+
+          <StackLayout row="3">
+            <Button class="meati-alternative-btn1" (tap)="handleLogin()" text="Einloggen"></Button>
+          </StackLayout>
+
+          <StackLayout row="4">
+              <Label class="meati-default-label3" 
+                text="Noch keinen Account? Registriere dich hier" 
+                (tap)="redirectRegister()"
+                verticalAlignment="center" 
+                textAlignment="center"
+                marginTop="70">
+              </Label>
+          </StackLayout>
+
+        </GridLayout>
+      </WrapLayout>
+      <!--<app-meati-navbar></app-meati-navbar>-->
+    <!-- </GridLayout>-->
+  </StackLayout>
+</GridLayout>

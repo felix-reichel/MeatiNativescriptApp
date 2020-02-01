@@ -1,0 +1,49 @@
+<StackLayout>
+	<app-meati-actionbar [title]="'Aktuelle Session'"></app-meati-actionbar>
+	<GridLayout rows="*,60">
+		<WrapLayout orientation="horizontal" class="meati-screen">
+			<ScrollView orientation="vertical" class="meati-helper-padding20" width="100%">
+				<StackLayout>
+					<StackLayout *ngIf="noDevicesConnected" class="meati-helper-padding20">
+						<Label class="session-err-msg" text=";-( Bitte stelle sicher, dass dein Meatemp mit der App verbunden ist" textWrap="true" verticalAlignment="middle"></Label>
+						<!--<app-meati-meatemp-session></app-meati-meatemp-session>-->
+					</StackLayout>
+					
+					<StackLayout *ngIf="!noDevicesConnected" class="meati-helper-padding20">
+						<!--<app-meati-meatemp-session></app-meati-meatemp-session>-->
+						<Label class="meati-default-label" text="{{ this.currentDevice.name }}:"></Label>
+						<StackLayout *ngFor="let grillProcess of this.grillSession.grillProcesses">
+							<GridLayout *ngIf="!isRunning(grillProcess)" rows="*" columns="1*, 4*, 2*" (tap)="createGrillProcess(grillProcess)" padding="10" class="grill-process seperator-top-20">
+								<Image *ngIf="grillProcess.pin.pinNo == 1" row="1" col="0" src="res://PinState_orange_inactive.png" height="100px" stretch ="aspectFit"></Image>
+								<Image *ngIf="grillProcess.pin.pinNo == 2" row="1" col="0" src="res://PinState_blue_inactive.png" height="100px" stretch ="aspectFit"></Image>
+								<Image *ngIf="grillProcess.pin.pinNo == 3" row="1" col="0" src="res://PinState_yellow_inactive.png" height="100px" stretch ="aspectFit"></Image>
+								<Image *ngIf="grillProcess.pin.pinNo == 4" row="1" col="0" src="res://PinState_green_inactive.png" height="100px" stretch ="aspectFit"></Image>
+								<Label row="1" col="1" class="meati-default-label" text="Pin {{ grillProcess.pin.pinNo }} jetzt belegen" horizontalAlignment="center" verticalAlignment="center"></Label>
+								<Label row="1" col="2" class="act-pin-temp" text="{{ this.getCurrentPinTemperatureByGrillProcess(grillProcess) }}" horizontalAlignment="center" verticalAlignment="center"></Label>
+							</GridLayout>
+
+							<GridLayout *ngIf="isRunning(grillProcess)" rows="*, *, *" columns="1*, 4*, 2*" padding="10" class="grill-process seperator-top-20">
+								<StackLayout class="seperator-bottom-50" orientation="horizontal" row="0" col="1" colSpan="1" horizontalAlignment="center" >
+									<Label class="meati-default-label" text="{{ grillProcess.preset.preset.presetName }}" marginRight="10"></Label>
+									<Label class="meati-cooking-level" text="{{ getGrillCookingLevelByGrillProcess(grillProcess) }}"></Label>
+								</StackLayout>
+								<Image *ngIf="grillProcess.pin.pinNo == 1" row="0" rowSpan="3" col="0" src="res://PinState_orange_active" height="100px" stretch ="aspectFit"></Image>
+								<Image *ngIf="grillProcess.pin.pinNo == 2" row="0" rowSpan="3" col="0" src="res://PinState_blue_active" height="100px" stretch ="aspectFit"></Image>
+								<Image *ngIf="grillProcess.pin.pinNo == 3" row="0" rowSpan="3" col="0" src="res://PinState_yellow_active" height="100px" stretch ="aspectFit"></Image>
+								<Image *ngIf="grillProcess.pin.pinNo == 4" row="0" rowSpan="3" col="0" src="res://PinState_green_active" height="100px" stretch ="aspectFit"></Image>
+								<GridLayout row="1" col="1" rows="*,*" columns="*,*">
+									<Progress row="0" col="0" colSpan="2" width="100%" value="{{ progressValue }}"  maxValue="{{ progressMaxValue }}" loaded="onProgressLoaded" class="p-20"></Progress>
+									<Label row="1" col="0" class="meati-default-label4" text="0°C" horizontalAlignment="left"></Label>
+									<Label row="1" col="1" class="meati-default-label4" text="{{ grillProcess.preset.preset.itemOnBbq.mediumDoneTemperature.end + '°C' }}" horizontalAlignment="right"></Label>
+								</GridLayout>
+								<Label row="0" col="2" rowSpan="3" class="act-pin-temp" text="{{ this.getCurrentPinTemperatureByGrillProcess(grillProcess) }}" horizontalAlignment="center" verticalAlignment="center"></Label>
+								<Label row="2" col="1" colSpan="1" class="meati-default-label2" text="{{ getGrillTime(grillProcess) }}"  horizontalAlignment="center" marginTop="0"></Label>
+							</GridLayout>
+						</StackLayout>
+					</StackLayout>
+				</StackLayout>
+			</ScrollView>
+		</WrapLayout>
+		<app-meati-navbar></app-meati-navbar>
+	</GridLayout>
+</StackLayout>

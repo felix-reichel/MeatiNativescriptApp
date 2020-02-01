@@ -1,0 +1,233 @@
+/* layout.less */
+
+@import "vars.less";
+
+* {
+    color: white;
+}
+
+/* Default for meati-screen primarly uses on ScrollViews Pages */
+.meati-screen {
+    background-color: @meati-light-black;
+}
+
+/* Sets backgrounds and styling of meati-listviews */
+.meati-listview1 {
+    background-color: @meati-light-black;
+}
+
+/* Meati List View Cell Style With Seperator */
+.meati-sperator-lvc {
+    border-bottom-color: #3a3c44;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-width: 1px;
+}
+
+/* Meati Fonts */
+.meati-label-h1 {
+    font-family: 'HK Grotesk SemiBold';
+    color: white;
+    font-size: 20pt;
+    text-align: center;
+    width: 100%;
+}
+.meati-label-h1-v2 {
+    &:extend(.meati-label-h1);
+    font-size: 32pt;
+}
+
+.meati-label-h1-v3 {
+    &:extend(.meati-label-h1-v2);
+    text-transform: uppercase;
+}
+
+.meati-label-h1-v4 {
+    &:extend(.meati-label-h1-v3);
+    font-size: 36pt;
+}
+
+.meati-label-h1-v5 { 
+    &:extend(.meati-label-h1-v4);
+    color: darkgray;
+}
+
+/* Default for Meati Buttons */
+.meati-default-btn {
+    color: white;
+    padding: 20px 0px;
+    background-color: @meati-light-black;
+    border-color: @meati-blue-grey;
+    border-width: 10px;
+    border-radius: 10%;
+    border-style: solid;
+}
+
+.meati-default-btn2 {
+    color: @meati-red;
+    padding: 20px 0px;
+    font-size: 20pt;
+}
+
+.meati-alternative-btn1 {
+    color: white;
+    padding: 30px 0px;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.1px;
+    background-color: @meati-red;
+}
+.meati-default-btn:active, .meati-default-btn:focus {
+    background-color: @meati-grey;
+}
+/* All meati-helper classes */
+.meati-helper-padding20 {
+    padding: 20px;
+}
+
+/* Default Meati Labels */
+
+.meati-default-label {
+    color: white;
+    font-size: 20px;
+}
+
+.meati-default-label2 {
+    color: white;
+    font-size: 18px;
+}
+
+.meati-default-label3 {
+    color: white;
+    font-size: 16px;
+}
+
+.meati-default-label4 {
+    color: white;
+    font-size: 14px;
+}
+
+.meati-default-label5 {
+    color: white;
+    font-size: 12px;
+}
+
+/* Inputs */
+
+.meati-tf { 
+    color: white;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 12px;
+    margin: 10px 0px;
+    border-width: 1;
+    border-color: white;
+}
+
+.meati-tf2 { 
+    color: white;
+    font-size: 40px;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 12px;
+    margin: 10px 0px;
+    border-width: 1;
+    border-color: white;
+}
+
+/* Seperators */
+
+.margin-10 {
+    margin: 10px;
+}
+
+.margin-20 {
+    margin: 20px;
+}
+
+.margin-50 {
+    margin: 50px;
+}
+
+.seperator-top-10 {
+    margin-top: 10px;
+}
+
+.seperator-top-20 {
+    margin-top: 20px;
+}
+
+.seperator-top-50 {
+    margin-top: 50px;
+}
+
+.seperator-top-100 {
+    margin-top: 100px;
+}
+
+.seperator-top-200 {
+    margin-top: 200px;
+}
+
+.seperator-top-500 {
+    margin-top: 500px;
+}
+
+.seperator-bottom-10 {
+    margin-bottom: 10px;
+}
+
+.seperator-bottom-20 {
+    margin-bottom: 20px;
+}
+
+.seperator-bottom-50 {
+    margin-bottom: 50px;
+}
+
+.seperator-bottom-100 {
+    margin-bottom: 100px;
+}
+
+/* Paddings */
+
+.padding-10 {
+    padding: 10px;
+}
+
+.padding-20 {
+    padding: 20px;
+}
+
+.padding-top-10 {
+    padding-top: 10px;
+}
+
+.padding-top-20 {
+    padding-top: 20px;
+}
+
+.padding-top-50 {
+    padding-top: 50px;
+}
+
+.padding-top-100 {
+    padding-top: 100px;
+}
+
+.padding-bottom-10 {
+    padding-bottom: 10px;
+}
+
+.padding-bottom-20 {
+    padding-bottom: 20px;
+}
+
+.padding-bottom-50 {
+    padding-bottom: 50px;
+}
+
+.padding-bottom-100 {
+    padding-bottom: 100px;
+}

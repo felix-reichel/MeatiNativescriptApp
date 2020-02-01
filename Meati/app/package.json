@@ -1,0 +1,8 @@
+{
+  "main": "main.js",
+  "name": "meati",
+  "version": "4.4.0",
+  "android": {
+              "markingMode": "none"
+            }
+}

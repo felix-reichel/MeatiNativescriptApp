@@ -1,0 +1,34 @@
+<StackLayout>
+	<app-meati-actionbar [title]="'Pin ' + grillProcess.pin.pinNo + ' belegen'"></app-meati-actionbar>
+	<GridLayout rows="*,60">
+		<WrapLayout orientation="horizontal" class="meati-screen">
+      <ScrollView orientation="vertical" class="meati-helper-padding20">
+        <StackLayout>
+          <Label class="meati-default-label" text="1. Preset auswählen"></Label>
+
+          <ListPicker width="100%" [items]="staticPresetsAsStringArray" (selectedIndexChange)="selectedPresetIndexChanged($event)" class="p-15 picker"></ListPicker>
+          
+          <Label class="meati-default-label" text="2. Garstufe festlegen"></Label>
+
+          <ListPicker width="100%" [items]="cookingLevels" [selectedIndex]="index" (selectedIndexChange)="selectedCookingLevelIndexChanged($event)" class="p-15 picker"></ListPicker>
+
+          <Label class="meati-default-label" text="3. Temperatur anpassen"></Label>
+
+          <TextField hint="Temperatur eingeben" 
+            [text]="this.temperature" 
+            secure="false"
+            keyboardType="number"
+            returnKeyType="done" 
+            autocorrect="false"
+            maxLength="10"
+            (blur)="onBlur($event)" 
+            class="meati-tf2">
+          </TextField>
+
+          <Button class="meati-default-btn2 seperator-bottom-20" text="Grillprozess starten" (tap)="addGrillProcess()"></Button>
+        </StackLayout>
+      </ScrollView>
+    </WrapLayout>
+    <app-meati-navbar></app-meati-navbar>
+  </GridLayout>
+</StackLayout>

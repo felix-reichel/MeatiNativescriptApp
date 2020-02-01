@@ -1,0 +1,43 @@
+<StackLayout>
+	<app-meati-actionbar [title]="'Geräte'"></app-meati-actionbar>
+	<GridLayout rows="*,60">
+		<WrapLayout orientation="horizontal" class="meati-screen">
+			<StackLayout class="meati-helper-padding20">
+				<!--<Button class="meati-alternative-btn1 seperator-bottom-10" text="Scan" (tap)="refresh()" width="100%">
+				</Button>-->
+				<Label class="devices-heading" text="Verbundene Geräte"></Label>
+				<ListView [items]="connectedDevices" class="meati-listview1 seperator-bottom-20" (itemTap)="redirectToDetail($event)" height="auto">
+					<ng-template let-item="item" let-i="index">
+							<GridLayout columns="3*,*">
+									<StackLayout col="0" class="padding-top-10 padding-bottom-10 meati-sperator-lvc">
+											<Label text="{{ item.name }}" class="meati-default-label"></Label>
+											<Label text="{{ item.UUID}}" class="meati-default-label4"></Label>
+									</StackLayout>
+									<StackLayout col="1">
+										<Label text="{{ item.state | uppercase}}" class="conn-state-label"
+										[ngStyle]="{'background-color': item.state !== 'connected' ? '#fb6149' : '#87ac55'}"></Label>
+									</StackLayout>
+								</GridLayout>
+					</ng-template>
+				</ListView>
+				<Label class="devices-heading" text="Verfügbare Geräte"></Label>
+				<PullToRefresh (refresh)="refreshList($event)">
+					<ListView [items]="availableDevices" class="meati-listview1" (itemTap)="onItemTap($event)" height="100%">
+						<ng-template let-item="item" let-i="index">
+							<GridLayout columns="3*,*">
+								<StackLayout col="0" class="padding-top-10 padding-bottom-10 meati-sperator-lvc">
+										<Label text="{{ item.name }}" class="meati-default-label"></Label>
+										<Label text="{{ item.UUID}}" class="meati-default-label4"></Label>
+								</StackLayout>
+								<StackLayout col="1">
+									<Label text="{{ item.state | uppercase}}" class="conn-state-label"
+									[ngStyle]="{'background-color': item.state !== 'connected' ? '#fb6149' : '#87ac55'}"></Label>
+								</StackLayout>
+							</GridLayout>
+						</ng-template>
+					</ListView>
+				</PullToRefresh>
+			</StackLayout>
+		</WrapLayout>
+		<app-meati-navbar></app-meati-navbar>
+	</GridLayout>

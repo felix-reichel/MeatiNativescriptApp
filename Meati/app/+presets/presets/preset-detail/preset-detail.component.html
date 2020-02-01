@@ -1,0 +1,16 @@
+<StackLayout>
+	<app-meati-actionbar [title]="'Preset editieren'"></app-meati-actionbar>
+	<GridLayout rows="*,60">
+		<WrapLayout orientation="horizontal" class="meati-screen">
+			<ScrollView width="100%" height="100%" orientation="vertical" class="meati-helper-padding20" width="100%">
+				<GridLayout rows="*, 6*, *" width="90%" height="90%" verticalAlignment="center" horizontalAlignment="center">
+					<Label row="0" text="Presetname"></Label>
+					<TextField row="1" [(ngModel)]="currPreset.presetName" hint="Presetname" class="meati-default-label3 meati-tf" autocorrect="false" autocapitalizationType="none">
+					</TextField>
+					<Button row="2" class="meati-alternative-btn1" (tap)="savePreset()" text="Speichern"></Button>
+				</GridLayout>
+			</ScrollView>
+		</WrapLayout>
+		<app-meati-navbar></app-meati-navbar>
+	</GridLayout>
+</StackLayout>

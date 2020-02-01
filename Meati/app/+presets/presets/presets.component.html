@@ -1,0 +1,39 @@
+<StackLayout>
+	<app-meati-actionbar [title]="'Presets'"></app-meati-actionbar>
+	<GridLayout rows="*,60">
+		<WrapLayout orientation="horizontal" class="meati-screen">
+			<ScrollView orientation="vertical" class="meati-helper-padding20" width="100%">
+				<StackLayout>
+					<GridLayout columns="*,*,*" rows="auto,auto" class="seperator-top-50">
+
+						<StackLayout class="seperator-top-50"orientation="vertical" row="0" col="0" (tap)="redirectToList(0)">
+							<Image class="preset_image" src="res://beef_preset" stretch="aspectFit" width="65%"></Image>
+							<Label horizontalAlignment="center" text="Rindfleisch" class="meati-default-label4"></Label>
+						</StackLayout>
+						<StackLayout class="seperator-top-50" orientation="vertical" row="0" col="1" (tap)="redirectToList(1)">
+							<Image class="preset_image" src="res://pork_preset" stretch="aspectFit" width="65%"></Image>
+							<Label horizontalAlignment="center" text="Schweinefleisch" class="meati-default-label4"></Label>
+						</StackLayout>
+						<StackLayout class="seperator-top-50" orientation="vertical" row="0" col="2" (tap)="redirectToList(3)">
+							<Image class="preset_image" src="res://fish_preset" stretch="aspectFit" width="65%"></Image>
+							<Label horizontalAlignment="center" text="Fisch" class="meati-default-label4"></Label>
+						</StackLayout>
+						<StackLayout class="seperator-top-100" orientation="vertical" row="1" col="0" (tap)="redirectToList(2)">
+							<Image class="preset_image" src="res://chicken_preset" stretch="aspectFit" width="65%"></Image>
+							<Label horizontalAlignment="center" text="Hühnerfleisch" class="meati-default-label4"></Label>
+						</StackLayout>
+						<StackLayout class="seperator-top-100" orientation="vertical" row="1" col="1" (tap)="redirectToList(4)">
+							<Image class="preset_image" src="res://turkey_preset" stretch="aspectFit" width="65%"></Image>
+							<Label horizontalAlignment="center" text="Putenfleisch" class="meati-default-label4"></Label>
+						</StackLayout>
+						<StackLayout class="seperator-top-100" orientation="vertical" row="1" col="2" (tap)="redirectToList(5)">
+							<Image class="preset_image" src="res://other_preset" stretch="aspectFit" width="65%"></Image>
+							<Label horizontalAlignment="center" text="Sonstige" class="meati-default-label4"></Label>
+						</StackLayout>
+					</GridLayout>
+				</StackLayout>
+			</ScrollView>
+		</WrapLayout>
+		<app-meati-navbar></app-meati-navbar>
+	</GridLayout>
+</StackLayout>

@@ -1,0 +1,8 @@
+{
+    "files.exclude": {
+        // "node_modules/": true, show for imports!
+        "platforms/": false,
+        "hooks/": true,
+        "**/*.js": true
+    }
+}

@@ -1,0 +1,31 @@
+<StackLayout>
+    <app-meati-actionbar [title]="'Profil'"></app-meati-actionbar>
+    <GridLayout rows="*,60">
+        <WrapLayout orientation="horizontal" class="meati-screen">
+            <ScrollView orientation="vertical" class="meati-helper-padding20" width="100%">
+                <StackLayout class="meati-helper-padding20" width="80%">
+                    <Label class="meati-label-h1-v5 seperator-top-20 seperator-bottom-20" text="Hallo, {{ currentUser.username }}!"></Label>
+                    <Button class="meati-default-btn2 seperator-bottom-20" text="Profil bearbeiten"></Button>
+                    <Label class="meati-label-h1 seperator-top-10 seperator-bottom-20" text="Deine Nutzerdaten"></Label>
+
+                    <GridLayout rows="*, *, *" columns="*, 3*" class="seperator-top-50">
+                        <Image row="0" col="0" rowSpan="3" class="profile_image" src="~/images/apple.jpg" stretch="aspectFit" width="100"></Image>
+                        <Label row="0" col="1" horizontalAlignment="right" text="{{ currentUser.firstname }} {{ currentUser.lastname }}" class="meati-default-label4 padding-top-20"></Label>
+                        <Label row="1" col="1" horizontalAlignment="right" text="{{ currentUser.email }}" class="meati-default-label4"></Label>
+                        <Label row="2" col="1" horizontalAlignment="right" text="{{ currentUser.dateOfBirth }}" class="meati-default-label4 padding-bottom-20"></Label>
+                    </GridLayout>
+
+                    <GridLayout rows="*, *" columns="*">
+                        <Label row="0" col="0" horizontalAlignment="center" text="Deine Lieblingspresets" class="seperator-top-100 meati-label-h1"></Label>
+                        <ListView row="1" col="0" [items]="favoritePresets" class="meati-listview1">
+                            <ng-template let-item="item" let-i="index">
+                                <Label text="{{ item }}" class="meati-default-label4"></Label>
+                            </ng-template>
+                        </ListView>
+                    </GridLayout>
+                </StackLayout>
+            </ScrollView>
+        </WrapLayout>
+        <app-meati-navbar></app-meati-navbar>
+    </GridLayout>
+</StackLayout>

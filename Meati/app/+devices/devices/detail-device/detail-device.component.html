@@ -1,0 +1,54 @@
+<StackLayout>
+    <app-meati-actionbar 
+       [title]="detailDevice.name">
+    </app-meati-actionbar>
+    <GridLayout rows="*,60">
+       <WrapLayout orientation="horizontal" class="meati-screen">
+          <ScrollView orientation="vertical" class="meati-helper-padding20" width="100%">
+             <StackLayout>
+                <Label class="meati-default-label seperator-top-20 seperator-bottom-10" text="Aktuelle Messwerte" textAlignment="center"></Label>
+                <GridLayout rows="*,*" columns="*,*">
+                   <!-- <StackLayout [ngClass]="temp1 > 50 ? 'redBg' : 'blueBg'" row="0" col="0" class="single-temp-unit"> -->
+                   <StackLayout row="0" col="0" class="single-temp-unit" (tap)="this.redirectToPinView(1)">
+                      <StackLayout orientation="horizontal" horizontalAlignment="center" marginBottom="5">
+                         <Label class="meati-default-label4" text="Pin 1 &nbsp;"></Label>
+                         <Image *ngIf="true" src="res://PinState_orange_inactive.png" height="30px" stretch ="aspectFit"></Image>
+                      </StackLayout>
+                      <Label id="temp1Label" class="meati-default-label" text="-- °C"></Label>
+                      <!--<Label *ngIf="temp1=='-- °C' || temp1=='-99 °C'" text="Stelle sicher, dass der Pin verbunden ist"></Label> -->
+                   </StackLayout>
+                   <StackLayout row="0" col="1" class="single-temp-unit" (tap)="this.redirectToPinView(2)">
+                      <StackLayout orientation="horizontal" horizontalAlignment="center" marginBottom="5">
+                         <Label class="meati-default-label4" text="Pin 2 &nbsp;"></Label>
+                         <Image *ngIf="true" src="res://PinState_blue_inactive.png" height="30px" stretch ="aspectFit"></Image>
+                      </StackLayout>
+                      <Label id="temp2Label" class="meati-default-label" text="-- °C"></Label>
+                      <!-- <Label *ngIf="temp1=='-- °C'" text="Stelle sicher, dass der Pin verbunden ist"></Label> -->
+                   </StackLayout>
+                   <StackLayout row="1" col="0" class="single-temp-unit" (tap)="this.redirectToPinView(3)">
+                      <StackLayout orientation="horizontal" horizontalAlignment="center" marginBottom="5">
+                         <Label class="meati-default-label4" text="Pin 3 &nbsp;"></Label>
+                         <Image *ngIf="true" src="res://PinState_yellow_inactive.png" height="30px" stretch ="aspectFit"></Image>
+                      </StackLayout>
+                      <Label id="temp3Label" class="meati-default-label" text="-- °C"></Label>
+                   </StackLayout>
+                   <StackLayout row="1" col="1" class="single-temp-unit" (tap)="this.redirectToPinView(4)">
+                      <StackLayout orientation="horizontal" horizontalAlignment="center" marginBottom="5">
+                         <Label class="meati-default-label4" text="Pin 4 &nbsp;"></Label>
+                         <Image *ngIf="true" src="res://PinState_green_inactive.png" height="30px" stretch ="aspectFit"></Image>
+                      </StackLayout>
+                      <Label id="temp4Label" class="meati-default-label" text="-- °C"></Label>
+                   </StackLayout>
+                </GridLayout>
+                <!--<Label text="{{ deviceInfo() }}" textWrap="true"></Label>-->
+                <Label class="meati-default-label3 seperator-top-20" text="Gerätename: {{ detailDevice.name }}"></Label>
+                <Label class="meati-default-label3" text="UUID: {{ detailDevice.UUID }}"></Label>
+                <Label class="meati-default-label3" text="Status: {{ detailDevice.state }}"></Label>
+                <Button class="meati-alternative-btn1 seperator-top-20" text="Gerätenamen ändern" (tap)="changeDeviceName()"></Button>
+                <Button class="meati-alternative-btn1 seperator-top-10 seperator-bottom-10" text="Verbindung trennen" (tap)="disconnect()"></Button>
+             </StackLayout>
+          </ScrollView>
+       </WrapLayout>
+       <app-meati-navbar></app-meati-navbar>
+    </GridLayout>
+ </StackLayout>

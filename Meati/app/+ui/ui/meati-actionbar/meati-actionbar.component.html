@@ -1,0 +1,8 @@
+<GridLayout columns="50, *, 50" rows="50">
+    <Image class="margin-20" src="~/images/chevron-left-shadow.png" col="0" (tap)="redirectBack()" [visibility]="this.router.canGoBack() ? 'visible' : 'collapsed'"></Image>
+    <Label class="meati-actionbar" (tap)="redirectSettings()"
+        col="1"
+        text="{{ titleString }}" >
+    </Label>
+    <Image id="settingsIcon" class="margin-50" src="res://icon_settings" col="2" (tap)="redirectSettings()" ></Image>
+</GridLayout>

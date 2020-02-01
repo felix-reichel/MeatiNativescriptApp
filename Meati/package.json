@@ -1,0 +1,77 @@
+{
+  "name": "meati",
+  "version": "0.0.3",
+  "description": "Meati",
+  "license": "",
+  "readme": "Meati Application",
+  "repository": "<fill-your-repository-here>",
+  "scripts": {
+    "css": "lessc app/shared/less/all.less --compress app/shared/less/all.css",
+    "dev-ios": "npm run css && tns run ios",
+    "dev-android": "npm run css && tns run android",
+    "prod-ios": "npm run css && tns run ios --bundle --env.uglify --env.aot --env.report",
+    "prod-android": "npm run css && tns run android --bundle --env.uglify --env.aot --env.report",
+    "prodv8-android": "npm run css && tns run android --bundle --env.uglify --env.aot --env.snapshot --env.report",
+    "prod-ios-tl": "npm run css && tns run ios --bundle --env.uglify --env.aot --env.report | timeline-view",
+    "prod-android-tl": "npm run css && tns run android --bundle --env.uglify --env.aot --env.report | timeline-view",
+    "prodv8-android-tl": "npm run css && tns run android --bundle --env.uglify --env.aot --env.snapshot --env.report | timeline-view"
+  },
+  "nativescript": {
+    "id": "at.meati.Meati",
+    "tns-android": {
+      "version": "3.4.2"
+    },
+    "tns-ios": {
+      "version": "3.4.1"
+    }
+  },
+  "dependencies": {
+    "@angular/animations": "~5.2.0",
+    "@angular/common": "~5.2.0",
+    "@angular/compiler": "~5.2.0",
+    "@angular/core": "~5.2.0",
+    "@angular/forms": "~5.2.0",
+    "@angular/http": "~5.2.0",
+    "@angular/platform-browser": "~5.2.0",
+    "@angular/platform-browser-dynamic": "~5.2.0",
+    "@angular/router": "~5.2.0",
+    "js-sha512": "^0.7.1",
+    "moment": "^2.22.1",
+    "nativescript-angular": "~5.2.0",
+    "nativescript-bluetooth": "^1.3.1",
+    "nativescript-loading-indicator": "^2.4.0",
+    "nativescript-performance-monitor": "^1.0.0",
+    "nativescript-pulltorefresh": "^2.1.0",
+    "nativescript-theme-core": "~1.0.4",
+    "nativescript-ui-chart": "^3.6.0",
+    "nativescript-ui-dataform": "^3.5.0",
+    "nativescript-ui-listview": "^3.5.1",
+    "reflect-metadata": "~0.1.8",
+    "rxjs": "~5.5.6",
+    "tns-core-modules": "~3.4.0",
+    "zone.js": "~0.8.2"
+  },
+  "devDependencies": {
+    "@angular/compiler-cli": "~5.2.3",
+    "@ngtools/webpack": "~1.9.1",
+    "babel-traverse": "6.4.5",
+    "babel-types": "6.4.5",
+    "babylon": "6.4.5",
+    "copy-webpack-plugin": "~4.3.0",
+    "css-loader": "~0.28.7",
+    "extract-text-webpack-plugin": "~3.0.2",
+    "lazy": "1.0.11",
+    "less": "^2.7.3",
+    "nativescript-dev-typescript": "~0.5.0",
+    "nativescript-dev-webpack": "^0.9.1",
+    "nativescript-worker-loader": "~0.8.1",
+    "raw-loader": "~0.5.1",
+    "resolve-url-loader": "~2.2.1",
+    "tns-platform-declarations": "^3.4.1",
+    "typescript": "~2.6.2",
+    "uglifyjs-webpack-plugin": "~1.1.6",
+    "webpack": "~3.10.0",
+    "webpack-bundle-analyzer": "^2.9.1",
+    "webpack-sources": "~1.1.0"
+  }
+}

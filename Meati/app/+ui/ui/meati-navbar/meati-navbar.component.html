@@ -1,0 +1,19 @@
+<StackLayout class="bottom-navbar" row="1" orientation="horizontal" height="60">
+    <StackLayout class="navButton" textWrap="true" width="33%" (tap)="redirect('devices')">
+      <Image [visibility]="this.router.routerExtensions.router.isActive('devices', true) ? 'visible' : 'collapsed'"] src="res://icon_device_active" stretch ="aspectFit" height="60%"></Image>
+      <Image [visibility]="!this.router.routerExtensions.router.isActive('devices', true) ? 'visible' : 'collapsed'"] src="res://icon_device_inactive" stretch ="aspectFit" height="60%"></Image>
+      <Label text="Geräte" horizontalAlignment="center" height="30%"></Label>
+    </StackLayout>
+    <StackLayout class="navButton" textWrap="true" width="33%" (tap)="redirect('meati')">
+      <Image [visibility]="this.router.routerExtensions.router.isActive('meati', true) ? 'visible' : 'collapsed'"] src="res://icon_session_active" stretch ="aspectFit" height="60%"></Image>
+      <Image [visibility]="!this.router.routerExtensions.router.isActive('meati', true) ? 'visible' : 'collapsed'"] src="res://icon_session_inactive" stretch ="aspectFit" height="60%"></Image>
+      <Label text="Session" horizontalAlignment="center" height="30%"></Label>
+    </StackLayout>
+    <StackLayout class="navButton" textWrap="true" width="33%" (tap)="redirect('presets')">
+      <Image [visibility]="this.router.routerExtensions.router.isActive('presets', true) ? 'visible' : 'collapsed'"] src="res://icon_preset_active" stretch ="aspectFit" height="60%"></Image>
+      <Image [visibility]="!this.router.routerExtensions.router.isActive('presets', true) ? 'visible' : 'collapsed'"]  src="res://icon_preset_inactive" stretch ="aspectFit" height="60%"></Image>
+      <Label text="Presets" horizontalAlignment="center" height="30%"></Label>
+    </StackLayout>
+</StackLayout>
+  
+  

@@ -1,0 +1,21 @@
+<StackLayout>
+    <app-meati-actionbar 
+      [title]="detailDevice.name + ' Pin ' + pinNo">
+    </app-meati-actionbar>
+    <GridLayout rows="*,60">
+      <WrapLayout orientation="horizontal" class="meati-screen">
+        <ScrollView orientation="vertical" class="meati-helper-padding20" width="100%">
+          <StackLayout>
+
+            <RadCartesianChart width="100%" height="500" tkExampleTitle tkToggleNavButton>
+                <CategoricalAxis labelSize="10" lineThickness="3" allowPan="true" allowZoom="true" horizontalZoom="5.0" tkCartesianHorizontalAxis majorTickInterval="5"></CategoricalAxis>
+                <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+                <LineSeries tkCartesianSeries [items]="categoricalSource" categoryProperty="timestampString" valueProperty="value"></LineSeries>
+            </RadCartesianChart>
+
+          </StackLayout>
+        </ScrollView>
+      </WrapLayout>
+      <app-meati-navbar></app-meati-navbar>
+    </GridLayout>
+  </StackLayout>
